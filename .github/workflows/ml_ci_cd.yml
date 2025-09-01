@@ -29,3 +29,9 @@ jobs:
 
     - name: list model
       run: ls -la model
+
+    - name: docker build
+      run: docker build -t ${{secrets.DOCKER_USER}}/${{secrets.MODEL_NAME}}:${{github.sha}} .
+    - name: show images
+      run: docker images
+
